@@ -66,3 +66,5 @@
 document.getElementById('gay-pride-js-div'), document.getElementById('gay-pride-js-style-tag'), document.getElementById('gay-pride-js-anchor'),
 5, 20);
 
+// The first two parameters define primary and secondary URLs of `rainbow-sign.svg` privided within this repository, respectively.
+// The last two parameters define height of the rainbow sign on default and on hover, respectively.
