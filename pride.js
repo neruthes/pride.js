@@ -50,6 +50,7 @@
         // Create <a> tag
         var aTag = inputAnrhorTag || d.createElement('a');
         aTag.setAttribute('id', 'gay-pride-js-anchor');
+        aTag.setAttribute('target', '_blank');
         aTag.href = 'https://en.wikipedia.org/wiki/Gay_pride';
 
         // Create <span> tag
