@@ -1,7 +1,7 @@
-(function (backgroundUrl1, backgroundUrl2, date, d, inputDivTag, inputStyleTag, inputAnrhorTag, defaultHeight, hoverHeight) {
-    if (6 <= date.getMonth() <= 7) {
+(function (MSG) {
+    if (6 <= MSG.date.getMonth() && MSG.date.getMonth() <= 7) {
         // Create <style> tag
-        var styleTag = inputStyleTag || d.createElement('style');
+        var styleTag = MSG.inputStyleTag || MSG.d.createElement('style');
         styleTag.setAttribute('id', 'gay-pride-js-style-tag');
         styleTag.setAttribute('type', 'text/css');
         styleTag.innerHTML = '\
@@ -37,24 +37,24 @@
             height: __HOVER_HEIGHT__px;\
             background-size: cover;\
         }\
-        '.replace(/__BG_URL_1__/g, backgroundUrl1)
-        .replace(/__BG_URL_2__/g, backgroundUrl2)
-        .replace(/__DEFAULT_HEIGHT__/g, defaultHeight)
-        .replace(/__HOVER_HEIGHT__/g, hoverHeight);
-        d.head.appendChild(styleTag);
+        '.replace(/__BG_URL_1__/g, MSG.backgroundUrl1)
+        .replace(/__BG_URL_2__/g, MSG.backgroundUrl2)
+        .replace(/__DEFAULT_HEIGHT__/g, MSG.defaultHeight)
+        .replace(/__HOVER_HEIGHT__/g, MSG.hoverHeight);
+        MSG.d.head.appendChild(MSG.styleTag);
 
         // Create <div> tag
-        var divTag = inputDivTag || d.createElement('div');
+        var divTag = MSG.inputDivTag || MSG.d.createElement('div');
         divTag.setAttribute('id', 'gay-pride-js-div');
 
         // Create <a> tag
-        var aTag = inputAnrhorTag || d.createElement('a');
+        var aTag = MSG.inputAnrhorTag || MSG.d.createElement('a');
         aTag.setAttribute('id', 'gay-pride-js-anchor');
         aTag.setAttribute('target', '_blank');
         aTag.href = 'https://en.wikipedia.org/wiki/Gay_pride';
 
         // Create <span> tag
-        var span = d.createElement('span');
+        var span = MSG.d.createElement('span');
         span.setAttribute('style', 'opacity: 0;');
         span.innerHTML = 'LGBT Pride';
 
@@ -62,10 +62,17 @@
         divTag.appendChild(aTag);
         document.body.insertBefore(divTag, document.body.firstChild);
     };
-})('/JN-Lab/other-images/rainbow-sign.svg', '//joyneop.parseapp.com/JN-Lab/other-images/rainbow-sign.svg',
-(new Date()), document,
-document.getElementById('gay-pride-js-div'), document.getElementById('gay-pride-js-style-tag'), document.getElementById('gay-pride-js-anchor'),
-5, 20);
+})({
+    backgroundUrl1: '/JN-Lab/other-images/rainbow-sign.svg',
+    backgroundUrl2: '//joyneop.parseapp.com/JN-Lab/other-images/rainbow-sign.svg',
+    date: (new Date()),
+    d: document,
+    inputDivTag: document.getElementById('gay-pride-js-div'),
+    inputStyleTag: document.getElementById('gay-pride-js-style-tag'),
+    inputAnrhorTag: document.getElementById('gay-pride-js-anchor'),
+    defaultHeight: 5,
+    hoverHeight: 20
+});
 
 // The first two parameters define primary and secondary URLs of `rainbow-sign.svg` privided within this repository, respectively.
 // The last two parameters define height of the rainbow sign on default and on hover, respectively.
