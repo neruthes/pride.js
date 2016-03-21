@@ -1,10 +1,11 @@
 (function (MSG) {
     if (6 <= MSG.date.getMonth() && MSG.date.getMonth() <= 7) {
         // Create <style> tag
-        var styleTag = MSG.inputStyleTag || MSG.d.createElement('style');
+        var styleTag = MSG.inputStyleTag ? MSG.inputStyleTag : document.createElement('style');
+        console.log(styleTag);
         styleTag.setAttribute('id', 'gay-pride-js-style-tag');
         styleTag.setAttribute('type', 'text/css');
-        styleTag.innerHTML = '\
+        var styleTagInnerHTML = '\
         @media print {\
             #gay-pride-js-div, #gay-pride-js-div * {\
                 display: none !important;\
@@ -19,7 +20,7 @@
             height: __HOVER_HEIGHT__px;\
         }\
         #gay-pride-js-anchor {\
-            background: url(__BG_URL_1__) no-repeat top scroll, url(__BG_URL_2__) no-repeat top scroll;\
+            background: url(__BG_URL__) no-repeat top scroll;\
             background-size: cover;\
             display: block;\
             position: absolute;\
@@ -37,24 +38,24 @@
             height: __HOVER_HEIGHT__px;\
             background-size: cover;\
         }\
-        '.replace(/__BG_URL_1__/g, MSG.backgroundUrl1)
-        .replace(/__BG_URL_2__/g, MSG.backgroundUrl2)
+        '.replace(/__BG_URL__/g, MSG.backgroundUrl)
         .replace(/__DEFAULT_HEIGHT__/g, MSG.defaultHeight)
         .replace(/__HOVER_HEIGHT__/g, MSG.hoverHeight);
-        MSG.d.head.appendChild(MSG.styleTag);
+        styleTag.appendChild(document.createTextNode(styleTagInnerHTML));
+        document.head.appendChild(styleTag);
 
         // Create <div> tag
-        var divTag = MSG.inputDivTag || MSG.d.createElement('div');
+        var divTag = MSG.inputDivTag ? MSG.inputDivTag : document.createElement('div');
         divTag.setAttribute('id', 'gay-pride-js-div');
 
         // Create <a> tag
-        var aTag = MSG.inputAnrhorTag || MSG.d.createElement('a');
+        var aTag = MSG.inputAnrhorTag ? MSG.inputAnrhorTag : document.createElement('a');
         aTag.setAttribute('id', 'gay-pride-js-anchor');
         aTag.setAttribute('target', '_blank');
         aTag.href = 'https://en.wikipedia.org/wiki/Gay_pride';
 
         // Create <span> tag
-        var span = MSG.d.createElement('span');
+        var span = document.createElement('span');
         span.setAttribute('style', 'opacity: 0;');
         span.innerHTML = 'LGBT Pride';
 
@@ -63,16 +64,12 @@
         document.body.insertBefore(divTag, document.body.firstChild);
     };
 })({
-    backgroundUrl1: '/JN-Lab/other-images/rainbow-sign.svg',
-    backgroundUrl2: '//joyneop.parseapp.com/JN-Lab/other-images/rainbow-sign.svg',
+    backgroundUrl: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCA2MCAyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+cmFpbmJvdy1zaWduPC90aXRsZT48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGZpbGw9IiNGMDAiIGQ9Ik0wIDBoMTB2MTBIMHoiLz48cGF0aCBmaWxsPSIjRkY5QjE3IiBkPSJNMTAgMGgxMHYxMEgxMHoiLz48cGF0aCBmaWxsPSIjRjJGRjAwIiBkPSJNMjAgMGgxMHYxMEgyMHoiLz48cGF0aCBmaWxsPSIjMjJGQzUxIiBkPSJNMzAgMGgxMHYxMEgzMHoiLz48cGF0aCBmaWxsPSIjMTQ1MkZGIiBkPSJNNDAgMGgxMHYxMEg0MHoiLz48cGF0aCBmaWxsPSIjRDgwMEZGIiBkPSJNNTAgMGgxMHYxMEg1MHoiLz48L2c+PC9zdmc+',
     date: (new Date()),
     d: document,
     inputDivTag: document.getElementById('gay-pride-js-div'),
     inputStyleTag: document.getElementById('gay-pride-js-style-tag'),
     inputAnrhorTag: document.getElementById('gay-pride-js-anchor'),
-    defaultHeight: 5,
-    hoverHeight: 20
+    defaultHeight: 4,
+    hoverHeight: 10
 });
-
-// The first two parameters define primary and secondary URLs of `rainbow-sign.svg` privided within this repository, respectively.
-// The last two parameters define height of the rainbow sign on default and on hover, respectively.
