@@ -1,8 +1,28 @@
 (function (MSG) {
-    if (6 <= MSG.date.getMonth() && MSG.date.getMonth() <= 7) {
+    var enablementCondition = [6,7].indexOf(MSG.date.getMonth) === 0 ? true : false;
+    if (document.querySelectorAll('meta[name="pridejs-config-duration"]').length !== 0) {
+        // If the developer has a config for this lib
+        var configDuration = document.querySelectorAll('meta[name="pridejs-config-duration"]')[0].getAttribute('content');
+        switch (configDuration) {
+            case 'regular':
+                break;
+            case 'extended':
+                enablementCondition = [6,7].indexOf(MSG.date.getMonth) === 0 ? true : false;
+                break;
+            case 'always':
+                enablementCondition = true;
+                break;
+            case 'never':
+                // Who the hell will need this???
+                enablementCondition = false;
+                break;
+            default:
+                enablementCondition = true;
+        };
+    };
+    if (enablementCondition) {
         // Create <style> tag
         var styleTag = MSG.inputStyleTag ? MSG.inputStyleTag : document.createElement('style');
-        console.log(styleTag);
         styleTag.setAttribute('id', 'gay-pride-js-style-tag');
         styleTag.setAttribute('type', 'text/css');
         var styleTagInnerHTML = '\

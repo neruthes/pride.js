@@ -6,9 +6,26 @@ And the rainbow links to [Gay pride](https://en.wikipedia.org/wiki/Gay_pride) on
 
 ## Usage
 
-Simply include `pride.js`.
+With configs via meta tags, you can easily use this lib by simply adding:
+
+```html
+<script src="https://cdn.rawgit.com/JoyNeop/gay-pride.js/master/pride.js"></script>
+```
 
 For live demo, visit [the author's website](http://joyneop.xyz/) in June or July.
+
+## Config
+
+### Duration
+
+You may add `<meta name="pridejs-config-duration" content="regular" />` in `<head>`. The meta tag is supposed to be placed before `pride.js` gets included.
+
+Available options:
+
+- `regular`: Display from June to July
+- `extended`: Display from May to August
+- `always`: Literally, always.
+- `never`: Literally, never. // Who the hell will need this???
 
 ## License
 
