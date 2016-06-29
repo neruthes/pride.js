@@ -1,5 +1,5 @@
 (function (MSG) {
-    var enablementCondition = [6,7].indexOf(MSG.date.getMonth) === 0 ? true : false;
+    var enablementCondition = [6,7].indexOf(MSG.date.getMonth()+1) === -1 ? false : true;
     if (document.querySelectorAll('meta[name="pridejs-config-duration"]').length !== 0) {
         // If the developer has a config for this lib
         var configDuration = document.querySelectorAll('meta[name="pridejs-config-duration"]')[0].getAttribute('content');
