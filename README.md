@@ -9,7 +9,8 @@ And the rainbow links to [Gay pride](https://en.wikipedia.org/wiki/Gay_pride) on
 With configs via meta tags, you can easily use this lib by simply adding:
 
 ```html
-<script src="https://cdn.rawgit.com/JoyNeop/gay-pride.js/master/pride.js"></script>
+<script src="https://raw.githubusercontent.com/JoyNeop/gay-pride.js/master/pride.js"></script>
+<!-- But notice Content-Security-Policy may prevent this script being run. -->
 ```
 
 For live demo, visit [the author's website](http://joyneop.xyz/) in June or July.

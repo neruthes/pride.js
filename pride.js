@@ -2,12 +2,14 @@
     var enablementCondition = [6,7].indexOf(MSG.date.getMonth()+1) === -1 ? false : true;
     if (document.querySelectorAll('meta[name="pridejs-config-duration"]').length !== 0) {
         // If the developer has a config for this lib
-        var configDuration = document.querySelectorAll('meta[name="pridejs-config-duration"]')[0].getAttribute('content');
+        if (document.querySelectorAll('meta[name="pridejs-config-duration"]').length != 0) {
+            var configDuration = document.querySelectorAll('meta[name="pridejs-config-duration"]')[0].getAttribute('content');
+        }
         switch (configDuration) {
             case 'regular':
                 break;
             case 'extended':
-                enablementCondition = [6,7].indexOf(MSG.date.getMonth) === 0 ? true : false;
+                enablementCondition = [5,6,7,8].indexOf(MSG.date.getMonth()+1) === -1 ? false : true;
                 break;
             case 'always':
                 enablementCondition = true;
