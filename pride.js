@@ -2,9 +2,7 @@
     var enablementCondition = [6,7].indexOf(MSG.date.getMonth()+1) === -1 ? false : true;
     if (document.querySelectorAll('meta[name="pridejs-config-duration"]').length !== 0) {
         // If the developer has a config for this lib
-        if (document.querySelectorAll('meta[name="pridejs-config-duration"]').length != 0) {
-            var configDuration = document.querySelectorAll('meta[name="pridejs-config-duration"]')[0].getAttribute('content');
-        }
+        var configDuration = document.querySelectorAll('meta[name="pridejs-config-duration"]')[0].getAttribute('content');
         switch (configDuration) {
             case 'regular':
                 break;
@@ -24,7 +22,7 @@
     };
     if (enablementCondition) {
         // Create <style> tag
-        var styleTag = MSG.inputStyleTag ? MSG.inputStyleTag : document.createElement('style');
+        var styleTag = MSG.inputStyleTag || document.createElement('style');
         styleTag.setAttribute('id', 'gay-pride-js-style-tag');
         styleTag.setAttribute('type', 'text/css');
         var styleTagInnerHTML = '\
@@ -67,11 +65,11 @@
         document.head.appendChild(styleTag);
 
         // Create <div> tag
-        var divTag = MSG.inputDivTag ? MSG.inputDivTag : document.createElement('div');
+        var divTag = MSG.inputDivTag || document.createElement('div');
         divTag.setAttribute('id', 'gay-pride-js-div');
 
         // Create <a> tag
-        var aTag = MSG.inputAnrhorTag ? MSG.inputAnrhorTag : document.createElement('a');
+        var aTag = MSG.inputAnrhorTag || document.createElement('a');
         aTag.setAttribute('id', 'gay-pride-js-anchor');
         aTag.setAttribute('target', '_blank');
         aTag.href = 'https://en.wikipedia.org/wiki/Gay_pride';
