@@ -1,4 +1,4 @@
-# gay-pride.js
+# Pride.js
 
 This micro script displays a rainbow bar at the top of the page, when it's June or July.
 
