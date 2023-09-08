@@ -9,7 +9,7 @@ And the rainbow links to [Gay pride](https://en.wikipedia.org/wiki/Gay_pride) on
 With configs via meta tags, you can easily use this lib by simply adding:
 
 ```html
-<script src="https://cdn.neop.me/gay-pride.js/pride.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/neruthes/pride.js@master/pride.js"></script>
 <!-- But notice Content-Security-Policy may prevent this script being run. -->
 ```
 
